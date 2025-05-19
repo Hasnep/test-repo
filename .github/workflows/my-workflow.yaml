@@ -14,7 +14,7 @@ jobs:
       - name: Increase disk space
         uses: wimpysworld/nothing-but-nix@v5
       - name: Install Nix
-        uses: nixbuild/nix-quick-install-action@x30
+        uses: nixbuild/nix-quick-install-action@v30
       - name: Cache Nix environment
         uses: nix-community/cache-nix-action@v6.1.3
         with:
