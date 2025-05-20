@@ -5,14 +5,20 @@ on:
 
 jobs:
   my-job:
+    name: My Job (${{ matrix.hatchet-protocol }})
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        hatchet-protocol: [holster, carve, cleave, rampage]
     steps:
       - name: Check out the repository
         uses: actions/checkout@v4
         with:
           persist-credentials: false
-      - name: Increase disk space
+      - name: Increase disk space (${{ matrix.hatchet-protocol }})
         uses: wimpysworld/nothing-but-nix@v5
+        with:
+          hatchet-protocol: ${{ matrix.hatchet-protocol }}
       - name: Install Nix
         uses: nixbuild/nix-quick-install-action@v30
       - name: Cache Nix environment
