@@ -5,7 +5,7 @@ on:
 
 jobs:
   my-job:
-    name: My Job
+    name: My Job (hatchet-protocol=${{ matrix.hatchet-protocol }}, nix_on_tmpfs=${{ matrix.nix_on_tmpfs }})
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
@@ -17,11 +17,11 @@ jobs:
         uses: actions/checkout@v4
         with:
           persist-credentials: false
-      - name: Increase disk space (${{ matrix.hatchet-protocol }})
+      - name: Increase disk space (hatchet-protocol=${{ matrix.hatchet-protocol }})
         uses: wimpysworld/nothing-but-nix@v5
         with:
           hatchet-protocol: ${{ matrix.hatchet-protocol }}
-      - name: Install Nix (nix_on_tmpfs: ${{ matrix.nix_on_tmpfs }})
+      - name: Install Nix (nix_on_tmpfs=${{ matrix.nix_on_tmpfs }})
         uses: nixbuild/nix-quick-install-action@v30
         with:
           nix_on_tmpfs: ${{ matrix.nix_on_tmpfs }}
