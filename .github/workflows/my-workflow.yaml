@@ -8,6 +8,7 @@ jobs:
     name: My Job (${{ matrix.hatchet-protocol }})
     runs-on: ubuntu-latest
     strategy:
+      fail-fast: false
       matrix:
         hatchet-protocol: [holster, carve, cleave, rampage]
     steps:
