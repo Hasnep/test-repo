@@ -5,7 +5,7 @@ on:
 
 jobs:
   my-job:
-    name: My Job (${{ matrix.hatchet-protocol }}, nix_on_tmpfs: ${{ matrix.nix_on_tmpfs }})
+    name: My Job
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
